@@ -1,0 +1,30 @@
+.displayNumber {
+    padding-left: 20%;
+    display: flex;
+    background-color: gray;
+}
+
+.container {
+    margin-top: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+button {
+    font-size: 50px;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+}
+
+.btnGroup0, .btnGroup1, .btnGroup2,
+.btnGroup3 {
+    display: flex;
+}
