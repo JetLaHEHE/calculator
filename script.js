@@ -4,6 +4,9 @@ let num2 = 0;
 
 let display;
 
+let operators = [];
+let oneDot = false;
+
 function operate(num1, operator, num2) {
     let result = 0;
 
@@ -18,7 +21,8 @@ function operate(num1, operator, num2) {
             result = num1 * num2;
             break;
         case '/':
-            result = num1 / num2;
+            const rounded = Math.round((num1 / num2) * 10) / 10
+            result = rounded;
             break;
     }
     return result;
@@ -34,12 +38,15 @@ document.addEventListener("click", function(evnt){
     let previousNumber = evnt.target.id.split('-')[1];
 
     if(previousNumber?.length == 1) {
+        console.log(display.textContent);
         display.textContent += previousNumber;
     }
+
     
 
     switch(id) {
         case 'btn-Equals':
+            oneDot = false;
             const content = display.textContent;
             const contentSplit = content.split(' ');
 
@@ -52,6 +59,7 @@ document.addEventListener("click", function(evnt){
             (Number(contentSplit[0]), contentSplit[1], Number(contentSplit[2]));
             break;
         case 'btn-Clear':
+            oneDot = false;
             display.textContent = '';
             break;
         case 'btn-divide':
@@ -66,6 +74,14 @@ document.addEventListener("click", function(evnt){
         case 'btn-subtract':
             display.textContent += ' - ';
             break;
+        case 'btn-dot':
+            if(!oneDot) {
+                oneDot = true;
+                display.textContent += '.';
+            }
+            break;
+        case 'btn-backspace':
+            display.textContent = display.textContent.slice(0, display.textContent.length - 1);
     }
 });
 
