@@ -30,6 +30,7 @@ function operate(num1, operator, num2) {
 
 const equalsBtn = document.querySelector('#equals');
 
+
 document.addEventListener("click", function(evnt){
     let id = evnt.target.id;
 
@@ -41,6 +42,24 @@ document.addEventListener("click", function(evnt){
         console.log(display.textContent);
         display.textContent += previousNumber;
     }
+
+document.addEventListener('keydown', pressedKey);
+
+function pressedKey(event) {
+    let key = event.key;
+    display = document.querySelector('.displayNumber h1');
+
+    console.log(Number(event.key));
+
+    if(key >= 0 && key <= 9) {
+        console.log('Keydown is a number!');
+        display.textContent +=  key;
+    }
+    switch(key) {
+        case '1':
+
+    }
+}
 
     
 
